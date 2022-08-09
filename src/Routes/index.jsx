@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Routes} from "react-router-dom";
-import { Home } from "./Home";
-import { Login } from "../Components/Login";
-import { Register } from "../Components/Register";
+import  {Home} from "./Home";
+import  {Login}  from "./Login";
+import { Register } from "./Register";
 export const Router = ()=>{
     return(
         <Routes>

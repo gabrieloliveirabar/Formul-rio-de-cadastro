@@ -1,11 +1,10 @@
-import { TitleHeader } from "../../Components/TitleHeader"
-import{Link} from "react-router-dom"
+import{Link} from "react-router-dom";
 
 export const Home = ()=>{
     return (
         <>
         <header>
-            <TitleHeader/>
+        
            <Link to={"/"}>Sair</Link>
         </header>
         <main>
