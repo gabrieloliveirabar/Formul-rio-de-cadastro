@@ -12,6 +12,7 @@ export const DivLogin = styled.div`
   padding: 85px 29px 51px;
 
   header {
+    width: 100%;
     margin-bottom: 20px;
   }
   main {
@@ -58,7 +59,7 @@ export const DivLogin = styled.div`
     border: 0.9772px solid var(--grey-0);
     border-radius: 3.20867px;
   }
-  button {
+  .btnLogin{
     background: var(--color-primary);
     height: 68.5px;
     width: 100%;
@@ -97,5 +98,13 @@ p {
       color: white;
     }
   } 
+  @media screen and (min-width: 413px){
+    header{
+       width :369px;
+    }
+    main{
+        width: 369px;
+    }
+  }
   
 `;
