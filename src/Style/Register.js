@@ -101,7 +101,7 @@ export const ContainerHome = styled.div`
         color: #868e96;
       }
     }
-    button {
+    .btnCadastrar {
       width: 100%;
       height: 38.38px;
       background: #59323f;
@@ -113,6 +113,15 @@ export const ContainerHome = styled.div`
       font-weight: 500;
       font-size: 12.7925px;
       color: #FFFFFF;
+    }
+  }
+
+  @media screen and (min-width:414px) {
+    header{
+      width:370px;
+    }
+    main{
+      width: 370px;
     }
   }
 `;

@@ -24,7 +24,7 @@ export const ContainerHome = styled.div`
       justify-content: center;
       align-items: flex-start;
       border-bottom: 1px solid var(--grey-3);
-      border-top: 1px solid var(--grey-3);
+     
     }
     h2 {
       font-family: "Inter";
@@ -43,12 +43,32 @@ export const ContainerHome = styled.div`
       color: #868e96;
     }
   }
-
+  @media screen and (min-width: 600px) {
+    main{
+      .user{
+        display: flex;
+        flex-direction: column;}
+    }
+  }
   @media screen and (min-width: 413px) {
-   
     background: var(--grey-4);
+
     header {
-      
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0px 81px;
+    }
+    main {
+
+      .user{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0px 81px;
+      }
+     
     }
   }
 `;

@@ -4,10 +4,14 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import axios from'axios';
 import Logo from "../../assets/Logo.svg";
 import { ContainerHome, LinkRegister } from "../../Style/Register";
-
+import { useState } from "react";
+import {ToastContainer, toast} from 'react-toastify';
 export const RegisterUsers = () => {
+  const [Validation,setValidation] = useState(false);
+
+
   const formSchema = yup.object().shape({
-    nome: yup.string().required("Nome obrigatório."),
+    name: yup.string().required("Nome obrigatório."),
     email: yup.string().required("Email obrigatório.").email(),
     password: yup
       .string()
@@ -16,17 +20,32 @@ export const RegisterUsers = () => {
       .matches(/([a-z])/, "deve conter ao menos 1 letra minúscula")
       .matches(/(\d)/, "deve conter ao menos 1 número")
       .matches(/(\W)|_/, "deve conter ao menos 1 caracter especial")
-      .matches(/.{8,}/, "deve conter ao menos 8 dígitos"),
-
+      .matches(/.{8}/, "deve conter ao menos 8 dígitos"),
     confirmPassword: yup
       .string()
       .oneOf([yup.ref("password"), null], "Password errado."),
     bio: yup.string().required("Bio obrigatória."),
     contact: yup.string().required("Contato Obrigatório."),
-
     course_module: yup.string(),
   });
-
+  const notify = ()=>{Validation===true
+  ?toast.success('Conta criada com sucesso!', {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    }):toast.error('ops, Algo deu errado!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });};
   const {
     register,
     handleSubmit,
@@ -34,9 +53,14 @@ export const RegisterUsers = () => {
   } = useForm({
     resolver: yupResolver(formSchema),
   });
-  const onSubmitFunction = ({email,password,name,bio,contact,course_module}) =>
-  axios.post("https://kenziehub.herokuapp.com/users",email,password,name,bio,contact,course_module)
-    
+  const onSubmitFunction = (data) => {
+
+    data?setValidation(true):setValidation(false)
+    axios.post("https://kenziehub.herokuapp.com/users",data)
+  .then((response)=>console.log(response))};
+  
+   
+  
   return (
     <ContainerHome>
       <header>
@@ -127,14 +151,15 @@ export const RegisterUsers = () => {
               id="course_module"
               {...register("course_module")}
             >
-              <option value="M1">Módulo 01</option>
-              <option value="M2">Módulo 02</option>
-              <option value="M3">Módulo 03</option>
+              <option value="M1">Primeiro módulo (Introdução ao Frontend)</option>
+              <option value="M2">Segundo módulo (Frontend Avançado)</option>
+              <option value="M3">Terceiro módulo (Introdução ao Backend)</option>
             </select>
             {errors.course_module?.message}
           </label>
 
-          <button type="submit">Cadastrar</button>
+          <button type="submit" className="btnCadastrar" onClick={notify}>Cadastrar</button>
+          <ToastContainer />
         </form>
       </main>
     </ContainerHome>
