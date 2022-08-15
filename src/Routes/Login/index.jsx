@@ -8,6 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import Logo from "../../assets/Logo.svg";
 import { DivLogin } from "../../Style/Login";
 import { useState } from "react";
+import Api from "../../Service";
 
 export const Login = () => {
   const [Status, setStatus] = useState(false);
@@ -26,8 +27,8 @@ export const Login = () => {
     resolver: yupResolver(formSchema),
   });
   const onSubmitFunction = (data) => {
-     axios
-      .post("https://kenziehub.herokuapp.com/sessions", data)
+     Api
+      .post("/sessions", data)
       .then((response) => {
         if (response.status === 200) {
           setStatus(true);
@@ -57,7 +58,7 @@ export const Login = () => {
     });
   };
 
-  axios.get("https://kenziehub.herokuapp.com/users");
+  Api.get("/users");
   return (
     <DivLogin>
       <header>
@@ -81,7 +82,10 @@ export const Login = () => {
             if(Status===true){
               
               Navigate("/Users")}
-            }}>
+            }
+             
+            
+           }>
             Entrar
           </button>
           <ToastContainer />

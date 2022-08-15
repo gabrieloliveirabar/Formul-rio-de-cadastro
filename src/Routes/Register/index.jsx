@@ -6,6 +6,7 @@ import Logo from "../../assets/Logo.svg";
 import { ContainerHome, LinkRegister } from "../../Style/Register";
 import { useState } from "react";
 import {ToastContainer, toast} from 'react-toastify';
+import Api from "../../Service";
 export const RegisterUsers = () => {
   const [Validation,setValidation] = useState(false);
 
@@ -56,7 +57,7 @@ export const RegisterUsers = () => {
   const onSubmitFunction = (data) => {
 
     data?setValidation(true):setValidation(false)
-    axios.post("https://kenziehub.herokuapp.com/users",data)
+    Api.post("/users",data)
   .then((response)=>console.log(response))};
   
    
