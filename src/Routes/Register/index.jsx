@@ -1,7 +1,6 @@
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import axios from'axios';
 import Logo from "../../assets/Logo.svg";
 import { ContainerHome, LinkRegister } from "../../Style/Register";
 import { useState } from "react";

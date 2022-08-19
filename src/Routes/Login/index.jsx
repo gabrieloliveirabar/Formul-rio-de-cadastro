@@ -1,64 +1,16 @@
-import * as yup from "yup";
-import axios from "axios";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import Logo from "../../assets/Logo.svg";
 import { DivLogin } from "../../Style/Login";
-import { useState } from "react";
-import Api from "../../Service";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { UserContext} from "../../Contexts/UserContext";
+
 
 export const Login = () => {
-  const [Status, setStatus] = useState(false);
-
   const Navigate = useNavigate();
-  const formSchema = yup.object().shape({
-    email: yup.string().required("Nome obrigatório!").email(),
-    password: yup.string().required("Senha obrigatória!"),
-  });
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(formSchema),
-  });
-  const onSubmitFunction = (data) => {
-     Api
-      .post("/sessions", data)
-      .then((response) => {
-        if (response.status === 200) {
-          setStatus(true);
-          window.localStorage.clear();
-           window.localStorage.setItem(
-            "@TOKEN",
-            response.data.token
-          );
-          window.localStorage.setItem(
-            "@USERID",
-            response.data.user.id
-          );
-        }
-      })
-      .catch((err) => console.log(err));
-  };
-
-  const notify = () => {
-    toast.error("ops, Algo deu errado!", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  };
-
-  Api.get("/users");
+  const {Status,register,handleSubmit,errors,onSubmitFunction,notify} = useContext(UserContext)
   return (
     <DivLogin>
       <header>

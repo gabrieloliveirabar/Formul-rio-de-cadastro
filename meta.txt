@@ -1,0 +1,6 @@
+refatorando projeto kenzieHub
+
+1º dia:Refatorar o projeto usando context
+2º dia:começar a estilização das tech
+3º dia:criar os modal das tech
+4º dia:finalizar a logica das tech

@@ -1,31 +1,57 @@
-import { Link } from "react-router-dom";
 import axios from "axios";
 import Logo from "../../assets/Logo.svg";
 import { ContainerHome, LinkHeader } from "../../Style/Home";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useContext } from "react";
+import { UserContext } from "../../Contexts/UserContext";
+import { Techs } from "../../Components/Techs";
+import { AddModal } from "../../Components/Modals/AddModal/Index";
 
 export const Home = () => {
-  const [name,setName] = useState("")
+  const [name, setName] = useState("");
+  const [openModal,setOpenModal] = useState(false);
+  const { user } = useContext(UserContext);
+  const ArrayTechs = user.techs;
   const user_id = window.localStorage.getItem("@USERID");
-  const Api_Id =  axios
-  .get(`https://kenziehub.herokuapp.com/users/${user_id}`)
-  .then(async(response)=>await setName(response.data.name));
-  
-  //  const ApiArray = axios
-  //    .get("https://kenziehub.herokuapp.com/users")
-  //   .then((response) => console.log(response.data));
- 
+  useEffect(()=>{
+    axios
+    .get(`https://kenziehub.herokuapp.com/users/${user_id}`)
+    .then((response) => setName(response.data.name));},[]) 
+
   return (
     <ContainerHome>
       <header>
         <img src={Logo} alt="" />
-        <LinkHeader to={"/"} onClick={()=>{window.localStorage.clear()}}>Sair</LinkHeader>
-        
+        <LinkHeader
+          to={"/"}
+          onClick={() => {
+            window.localStorage.clear();
+          }}
+        >
+          Sair
+        </LinkHeader>
       </header>
       <main>
         <div className="user">
           <h2>Olá,{name}</h2>
           <p>Primeiro módulo (Introdução ao Frontend)</p>
+        </div>
+        <div className="ContainerTechs">
+          <div className="decriptionUl">
+            <h1>Tecnologias</h1>
+            <button className="buttonOpen" onClick={()=>{setOpenModal(true)}}>+</button>
+            {
+            openModal && <AddModal setOpenModal={setOpenModal}/>
+            } 
+
+          </div>
+          <ul>
+            {ArrayTechs?.map((elem) => (
+              <li>
+                <Techs title={elem.title} status={elem.status} />
+              </li>
+            ))}
+          </ul>
         </div>
       </main>
     </ContainerHome>
