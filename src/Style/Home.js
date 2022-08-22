@@ -7,6 +7,7 @@ export const ContainerHome = styled.div`
   width: 100vw;
   background: var(--grey-4);
   header {
+   
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,12 +19,17 @@ export const ContainerHome = styled.div`
     flex-direction: column;
     width: 100%;
     .user {
+     
       padding: 34px 12px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
       border-bottom: 1px solid var(--grey-3);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .ContainerTechs {
       width: 100%;
@@ -70,11 +76,19 @@ export const ContainerHome = styled.div`
         border: none;
         border-radius: 4px;
       }
+      .buttonOpen:hover {
+        width: 32px;
+        height: 32px;
+        background: #212529;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
     }
     ul {
       width: 305px;
       background: #212529;
-      padding: 0px 10px;
+      padding: 0px 5px;
       padding-top: 10px;
 
       display: flex;
@@ -88,7 +102,7 @@ export const ContainerHome = styled.div`
       background: var(--grey-4);
       border-radius: 5px;
       margin-bottom: 10px;
-      padding: 10px 5px;
+      padding: 10px 10px;
 
       display: flex;
       justify-content: space-between;
@@ -110,25 +124,12 @@ export const ContainerHome = styled.div`
         color: #868e96;
       }
     }
-  }
-  @media screen and (min-width: 600px) {
-    main {
-      .user {
-        display: flex;
-        flex-direction: column;
-      }
-      .decriptionUl{
-        width: 77%;
-      }
-      ul{
-        width:77%;
-      }
-    }
-  }
+  } 
   @media screen and (min-width: 413px) {
     background: var(--grey-4);
 
     header {
+      height: 71px;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
@@ -136,10 +137,11 @@ export const ContainerHome = styled.div`
     }
     main {
       .user {
+        height:118px;
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
         padding: 0px 81px;
       }
       .decriptionUl{
@@ -151,6 +153,27 @@ export const ContainerHome = styled.div`
      
     }
   }
+  @media screen and (min-width: 600px) {
+    header{
+      height: 71px;
+      display: flex;
+      align-items: center;
+    }
+    main {
+      .user {
+        display: flex;
+        flex-direction:row;
+        justify-content: space-between;       
+      }
+      .decriptionUl{
+        width: 89%;
+      }
+      ul{
+        width:88%;
+      }
+    }
+  }
+ 
 `;
 export const LinkHeader = styled(Link)`
   width: 56px;

@@ -21,17 +21,11 @@ export const Main = ({ labelUm, labelDois,children }) => {
         handleSubmit,formState:{errors}
     }  = useForm({resolver: yupResolver(formSchema)})
     
-    function onSubmitFunction(data){
+    function onSubmitFunction(data,e){
+    
        setObjTech(data)
         
     }
-    
-     useEffect(()=>{
-      Api.get(`/users`).then((response)=>console.log(response))
-     },[])
-    
-    
-   
   return (
     <MainStyled>
       <form onSubmit={handleSubmit(onSubmitFunction)} >

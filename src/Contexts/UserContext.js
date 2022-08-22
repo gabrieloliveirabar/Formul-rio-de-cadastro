@@ -3,7 +3,7 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Api from "../Service";
-import { toast } from "react-toastify";
+
 
 export const UserContext = createContext();
 
@@ -50,17 +50,7 @@ function UserProvider({ children }) {
     }
   }, [user]);
  
-  const notify = () => {
-    toast.error("ops, Algo deu errado!", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  };
+  
   return (
     <UserContext.Provider
       value={{
@@ -69,7 +59,6 @@ function UserProvider({ children }) {
         handleSubmit,
         errors,
         onSubmitFunction,
-        notify,
         user
       }}
     >

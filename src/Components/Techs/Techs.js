@@ -10,7 +10,9 @@ align-items: center;
 .containerStatus{
     height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
+   justify-content: space-between;
+   align-items: center;
 }
 
 .btnAtualizar{

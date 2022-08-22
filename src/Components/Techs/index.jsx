@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { AiFillEdit } from "react-icons/ai";
+import { RiDeleteBin5Line } from "react-icons/ri";
 import { AtualizarModal } from "../Modals/AtualizarModale";
 import { TechsStyled } from "./Techs";
-export const Techs = ({ title, status }) => {
+export const Techs = ({ title, status,techId}) => {
+  
   const [ModalAtualizar, setModalAtualizar] = useState(false);
   return (
     <TechsStyled>
@@ -14,14 +15,11 @@ export const Techs = ({ title, status }) => {
           }}
           className="btnAtualizar"
         >
-          <AiFillEdit />
+        <RiDeleteBin5Line />
         </button>
-        {ModalAtualizar && <AtualizarModal />}
+        {ModalAtualizar && <AtualizarModal setModalAtualizar={setModalAtualizar}  title={ title} status={status} techId={techId}/>}
         <p>{status}</p>
       </div>
     </TechsStyled>
   );
-};
-{
-  /*  <AtualizarModal/>*/
 }

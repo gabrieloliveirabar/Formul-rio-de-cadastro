@@ -10,7 +10,7 @@ import { UserContext} from "../../Contexts/UserContext";
 
 export const Login = () => {
   const Navigate = useNavigate();
-  const {Status,register,handleSubmit,errors,onSubmitFunction,notify} = useContext(UserContext)
+  const {Status,register,handleSubmit,errors,onSubmitFunction} = useContext(UserContext)
   return (
     <DivLogin>
       <header>

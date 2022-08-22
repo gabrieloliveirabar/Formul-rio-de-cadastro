@@ -50,10 +50,9 @@ export const Home = () => {
 
           </div>
           <ul>
-            {ArrayTechs?.map((elem) => (
-             
+            {ArrayTechs?.map((elem) => (             
                <li key={elem.id}>
-               <Techs title={elem.title} status={elem.status} idElem={elem} setOpenModalAtualizar={setOpenModalAtualizar} />
+               <Techs title={elem.title} status={elem.status} setOpenModalAtualizar={setOpenModalAtualizar} techId={elem.id}/>
               </li>
             ))}
           </ul>
