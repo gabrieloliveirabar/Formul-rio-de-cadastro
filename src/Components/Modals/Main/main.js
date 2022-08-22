@@ -63,4 +63,20 @@ export const MainStyled = styled.main`
     font-size: 12.8347px;
     line-height: 21px;
   }
+  .btnCadastro:hover {
+    height: 38px;
+    width: 92%;
+
+    margin: 0px auto;
+    background: var(--color-primary);
+    border: none;
+    border-radius: 4px;
+
+    font-family: var(--font-family);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12.8347px;
+    line-height: 21px;
+    cursor: pointer;
+  }
 `;

@@ -2,13 +2,14 @@ import { MainStyled } from "./main";
 import * as yup from 'yup';
 import {useForm} from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { TechContext } from "../../../Contexts/TechContext";
+import Api from "../../../Service";
 
 
 export const Main = ({ labelUm, labelDois,children }) => {
 
-    const {setObjTech,objTech} = useContext(TechContext)
+    const {setObjTech,setTechId} = useContext(TechContext)
 
     const formSchema = yup.object().shape({
         title:yup.string().required("Nome Obrigatório!"),
@@ -24,6 +25,12 @@ export const Main = ({ labelUm, labelDois,children }) => {
        setObjTech(data)
         
     }
+    
+     useEffect(()=>{
+      Api.get(`/users`).then((response)=>console.log(response))
+     },[])
+    
+    
    
   return (
     <MainStyled>

@@ -6,17 +6,21 @@ import { useContext } from "react";
 import { UserContext } from "../../Contexts/UserContext";
 import { Techs } from "../../Components/Techs";
 import { AddModal } from "../../Components/Modals/AddModal/Index";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   const [name, setName] = useState("");
-  const [openModal,setOpenModal] = useState(false);
+  const [openModalAdd,setOpenModalAdd] = useState(false);
+  const [openModalAtualizar,setOpenModalAtualizar] = useState(false);
   const { user } = useContext(UserContext);
   const ArrayTechs = user.techs;
   const user_id = window.localStorage.getItem("@USERID");
   useEffect(()=>{
     axios
     .get(`https://kenziehub.herokuapp.com/users/${user_id}`)
-    .then((response) => setName(response.data.name));},[]) 
+    .then((response) => setName(response.data.name))},[]) 
+
+
 
   return (
     <ContainerHome>
@@ -33,22 +37,23 @@ export const Home = () => {
       </header>
       <main>
         <div className="user">
-          <h2>Olá,{name}</h2>
+          <h2>Olá, {name}</h2>
           <p>Primeiro módulo (Introdução ao Frontend)</p>
         </div>
         <div className="ContainerTechs">
           <div className="decriptionUl">
             <h1>Tecnologias</h1>
-            <button className="buttonOpen" onClick={()=>{setOpenModal(true)}}>+</button>
+            <button className="buttonOpen" onClick={()=>{setOpenModalAdd(true)}}>+</button>
             {
-            openModal && <AddModal setOpenModal={setOpenModal}/>
+            openModalAdd && <AddModal setOpenModalAdd={setOpenModalAdd}/>
             } 
 
           </div>
           <ul>
             {ArrayTechs?.map((elem) => (
-              <li>
-                <Techs title={elem.title} status={elem.status} />
+             
+               <li key={elem.id}>
+               <Techs title={elem.title} status={elem.status} idElem={elem} setOpenModalAtualizar={setOpenModalAtualizar} />
               </li>
             ))}
           </ul>

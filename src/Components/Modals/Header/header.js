@@ -5,6 +5,7 @@ height: 40px;
 background: #343B41;
 border-radius: 4px 4px 0px 0px;
 padding: 0px;
+display: flex;
 
 button{
     width: 32px;
@@ -14,4 +15,7 @@ button{
     color: #868E96;
 
 }
+
+
+
 `

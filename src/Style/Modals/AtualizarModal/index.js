@@ -3,7 +3,7 @@ import "../../../Style/Reset.css";
 import "../../../Style/base.css";
 
 
-export const StyleAddModal = styled.div`
+export const StyleAtualizarModal = styled.div`
 width: 320px;
 height: 274px;
 position: absolute;
@@ -14,9 +14,6 @@ display: flex;
 flex-direction: column;
 justify-content: flex-start;
 align-items: center;
-@media screen and (min-width:600px) {
-    right: 300px;
-   
-}
+
 
 `

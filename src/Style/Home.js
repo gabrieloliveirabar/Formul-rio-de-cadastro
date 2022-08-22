@@ -74,6 +74,7 @@ export const ContainerHome = styled.div`
     ul {
       width: 305px;
       background: #212529;
+      padding: 0px 10px;
       padding-top: 10px;
 
       display: flex;
@@ -82,7 +83,7 @@ export const ContainerHome = styled.div`
       align-items: center;
     }
     li {
-      width: 279px;
+      width: 97%;;
       height: 49px;
       background: var(--grey-4);
       border-radius: 5px;
@@ -99,6 +100,7 @@ export const ContainerHome = styled.div`
         font-weight: 700;
         font-size: 14.2123px;
         color: var(--grey-0);
+        
       }
       p {
         font-family: var(--font-family);
@@ -114,6 +116,12 @@ export const ContainerHome = styled.div`
       .user {
         display: flex;
         flex-direction: column;
+      }
+      .decriptionUl{
+        width: 77%;
+      }
+      ul{
+        width:77%;
       }
     }
   }
@@ -134,6 +142,13 @@ export const ContainerHome = styled.div`
         align-items: flex-start;
         padding: 0px 81px;
       }
+      .decriptionUl{
+        width:77%;
+      }
+      ul{
+        width:77%;
+      }
+     
     }
   }
 `;
