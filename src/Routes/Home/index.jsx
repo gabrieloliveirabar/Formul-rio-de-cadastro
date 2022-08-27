@@ -6,13 +6,13 @@ import { useContext } from "react";
 import { UserContext } from "../../Contexts/UserContext";
 import { Techs } from "../../Components/Techs";
 import { AddModal } from "../../Components/Modals/AddModal/Index";
-import { Link } from "react-router-dom";
 
 export const Home = () => {
   const [name, setName] = useState("");
   const [openModalAdd,setOpenModalAdd] = useState(false);
-  const [openModalAtualizar,setOpenModalAtualizar] = useState(false);
+
   const { user } = useContext(UserContext);
+ 
   const ArrayTechs = user.techs;
   const user_id = window.localStorage.getItem("@USERID");
   useEffect(()=>{
@@ -52,7 +52,8 @@ export const Home = () => {
           <ul>
             {ArrayTechs?.map((elem) => (             
                <li key={elem.id}>
-               <Techs title={elem.title} status={elem.status} setOpenModalAtualizar={setOpenModalAtualizar} techId={elem.id}/>
+               <Techs title={elem.title} status={elem.status} 
+                techId={elem.id}/>
               </li>
             ))}
           </ul>
