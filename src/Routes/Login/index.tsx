@@ -10,6 +10,8 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Api from "../../Service";
+import Logo from "../../assets/Logo.svg"
+
 
 
 interface IOnSubmitFunctionProps {
@@ -18,7 +20,7 @@ interface IOnSubmitFunctionProps {
   password:string
 }
 export const Login = () => {
-  const logo = require('../../assets/logo.svg');
+  
   
   const {status, setStatus} = useContext(UserContext)
 
@@ -53,7 +55,7 @@ export const Login = () => {
   return (
     <DivLogin>
       <header>
-        <img src={logo} alt="LogoKenzie" />
+        <img src={Logo} alt="LogoKenzie" />
       </header>
       <main>
         <h2 className="titleLogin">Login</h2>
