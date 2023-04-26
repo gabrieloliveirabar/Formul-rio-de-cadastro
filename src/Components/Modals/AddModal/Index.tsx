@@ -1,7 +1,5 @@
 import { StyleAddModal } from "../../../Style/Modals/AddModal";
 import { Main } from "../Main";
-import { useContext } from "react";
-import { TechContext } from "../../../Contexts/TechContext";
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
 

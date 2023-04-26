@@ -72,6 +72,20 @@ export const DivLogin = styled.div`
     font-size: 12.8347px;
     color: #ffffff;
   }
+  .btnLogin:hover{
+    background: var(--color-primary);
+    height: 68.5px;
+    width: 100%;
+    border: 1.2182px solid #ff577f;
+    border-radius: 4.06066px;
+
+    font-family: var(--font-family);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12.8347px;
+    color: #ffffff;
+    cursor: pointer;
+  }
   .containerRegister {
     width: 100%;
 p {
